@@ -4,31 +4,15 @@ import { usePi } from "@/components/PiProvider";
 export default function Home() {
   const { isReady, pi } = usePi();
 
-  // إذا كان النظام لا يزال في مرحلة التهيئة، نظهر رسالة انتظار
-  if (!isReady) {
-    return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '100vh', 
-        fontFamily: 'sans-serif' 
-      }}>
-        <p>جاري تهيئة النظام، يرجى الانتظار...</p>
-      </div>
-    );
-  }
-
-  // الواجهة الرئيسية بعد التحميل
+  // لا نجعل المستخدم ينتظر للأبد، إذا تأخر التحميل نظهر واجهة التطبيق مباشرة
   return (
-    <main style={{ 
-      padding: '20px', 
-      textAlign: 'center', 
-      fontFamily: 'sans-serif',
-      color: '#333'
-    }}>
-      <h1 style={{ color: '#5c2d91' }}>مرحباً بك في πPrime AI</h1>
-      <p>منصة الذكاء الاصطناعي الذكية لشبكة Pi</p>
-      
-      <div style={{ 
-        marginTop: '3
+    <main style={{ padding: '20px', textAlign: 'center' }}>
+      <h1>πPrime AI</h1>
+      {isReady ? (
+        <p>الحالة: {pi ? "متصل بـ Pi Network" : "وضع العمل المستقل (بدون SDK)"}</p>
+      ) : (
+        <p>جاري التحميل...</p>
+      )}
+    </main>
+  );
+}
