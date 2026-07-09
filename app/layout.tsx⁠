@@ -1,11 +1,12 @@
-import "./globals.css";
 import { PiProvider } from "@/components/PiProvider";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html>
       <body>
-        <PiProvider>{children}</PiProvider>
+        <PiProvider>
+          {children}
+        </PiProvider>
       </body>
     </html>
   );
