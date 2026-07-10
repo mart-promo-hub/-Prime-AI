@@ -6,7 +6,7 @@ import { PiProvider } from "@/components/providers/PiProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Prime AI - Pi Ecosystem",
+  title: "πPrime AI - Pi Ecosystem",
   description: "AI-Powered Promotion Platform for Pi Ecosystem",
 };
 
