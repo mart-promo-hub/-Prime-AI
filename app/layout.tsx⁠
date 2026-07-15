@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { PiProvider } from "@/components/providers/PiProvider";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script src="https://sdk.pi.app/pi.min.js" async />
+        {/* تم تحديث الرابط إلى الرابط الرسمي للـ SDK لضمان التوافق مع متصفح Pi[span_1](start_span)[span_1](end_span) */}
+        {/* استخدام strategy="beforeInteractive" يضمن تحميل المكتبة قبل بدء تشغيل تطبيق React[span_2](start_span)[span_2](end_span) */}
+        <Script 
+          src="https://sdk.pi.network/v1/pi.js" 
+          strategy="beforeInteractive" 
+        />
       </head>
       <body className={inter.className}>
         <PiProvider>
